@@ -7,12 +7,13 @@
 
 import SwiftUI
 
-struct PriceChangeLabel: View {
+@available(iOS 15.0, macOS 12.0, *)
+public struct PriceChangeLabel: View {
     
     var item: PriceChangeItem
     @Binding var type: PriceChangeType
     
-    var body: some View {
+    public var body: some View {
         ZStack {
             switch type {
             case .newPrice:
@@ -29,6 +30,7 @@ struct PriceChangeLabel: View {
     }
 }
 
+@available(iOS 15.0, macOS 12.0, *)
 struct PriceChangeLabel_Previews: PreviewProvider {
     static var previews: some View {
         PriceChangeLabel(

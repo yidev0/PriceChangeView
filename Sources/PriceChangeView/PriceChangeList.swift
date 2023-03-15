@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, macOS 12.0, *)
 struct PriceChangeList: View {
     
     @State var type: PriceChangeType = .diff
@@ -30,6 +31,7 @@ struct PriceChangeList: View {
     }
 }
 
+@available(iOS 15.0, macOS 12.0, *)
 struct PriceChangeList_Previews: PreviewProvider {
     static var previews: some View {
         PriceChangeList(items: [

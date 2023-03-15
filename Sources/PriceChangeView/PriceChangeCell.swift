@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, macOS 12.0, *)
 struct PriceChangeCell: View {
     
     var item: PriceChangeItem
@@ -23,6 +24,7 @@ struct PriceChangeCell: View {
     }
 }
 
+@available(iOS 15.0, macOS 12.0, *)
 struct PriceChangeCell_Previews: PreviewProvider {
     static var previews: some View {
         PriceChangeCell(

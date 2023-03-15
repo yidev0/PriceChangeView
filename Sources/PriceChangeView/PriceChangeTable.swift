@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 16.0, macOS 12.0, *)
 struct PriceChangeTable: View {
     
     #if !os(macOS)
@@ -26,14 +27,15 @@ struct PriceChangeTable: View {
                 #if os(macOS)
                 Text(item.country)
                 #else
-                if sizeClass == .compact {
+                switch sizeClass {
+                case .compact:
                     HStack {
                         Text(item.country)
                         Spacer()
                         PriceChangeLabel(item: item, type: $type)
                             .foregroundColor(.secondary)
                     }
-                } else {
+                default:
                     Text(item.country)
                 }
                 #endif
@@ -61,6 +63,7 @@ struct PriceChangeTable: View {
     }
 }
 
+@available(iOS 16.0, macOS 12.0, *)
 struct PriceChangeTable_Previews: PreviewProvider {
     static var previews: some View {
         PriceChangeTable(items: [

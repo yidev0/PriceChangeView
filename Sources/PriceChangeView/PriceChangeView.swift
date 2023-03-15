@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, macOS 12.0, *)
 public struct PriceChangeView: View {
     
     private var fileName: String
@@ -14,7 +15,7 @@ public struct PriceChangeView: View {
     @State var allItems: [PriceChangeItem]
     @State var search: String
     
-    init(fileName: String) {
+    public init(fileName: String) {
         self.fileName = fileName
         self._items = .init(initialValue: [])
         self._allItems = .init(initialValue: [])

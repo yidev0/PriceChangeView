@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, macOS 12.0, *)
 struct PriceChangePicker: View {
     
     @Binding var type: PriceChangeType
@@ -25,6 +26,7 @@ struct PriceChangePicker: View {
     }
 }
 
+@available(iOS 15.0, macOS 12.0, *)
 struct PriceChangePicker_Previews: PreviewProvider {
     static var previews: some View {
         PriceChangePicker(type: .constant(.diff))
