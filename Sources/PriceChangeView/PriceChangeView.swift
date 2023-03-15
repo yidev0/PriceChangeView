@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct PriceChangeView: View {
+public struct PriceChangeView: View {
     
-    var fileName: String
+    private var fileName: String
     @State var items: [PriceChangeItem]
     @State var allItems: [PriceChangeItem]
     @State var search: String
@@ -21,7 +21,7 @@ struct PriceChangeView: View {
         self._search = .init(initialValue: "")
     }
     
-    var body: some View {
+    public var body: some View {
         navigation
             .onAppear {
                 loadData()

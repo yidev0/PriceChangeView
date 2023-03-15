@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "PriceChangeView",
+    name: "PriceChangeKit",
     platforms: [
         .iOS(.v14),
         .macOS(.v12)
