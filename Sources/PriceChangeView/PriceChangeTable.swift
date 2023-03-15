@@ -14,11 +14,12 @@ struct PriceChangeTable: View {
     @Environment(\.horizontalSizeClass) var sizeClass
     #endif
     
-    @State var type: PriceChangeType = .diff
+    @Binding var type: PriceChangeType
     var items: [PriceChangeItem]
     
-    init(items: [PriceChangeItem]) {
+    init(items: [PriceChangeItem], type: Binding<PriceChangeType>) {
         self.items = items
+        self._type = type
     }
     
     var body: some View {
@@ -66,19 +67,22 @@ struct PriceChangeTable: View {
 @available(iOS 16.0, macOS 12.0, *)
 struct PriceChangeTable_Previews: PreviewProvider {
     static var previews: some View {
-        PriceChangeTable(items: [
-            .init(
-                country: "United States",
-                currency: "USD",
-                currentPrice: 1.99,
-                newPrice: 99.99
-            ),
-            .init(
-                country: "Canada",
-                currency: "CAD",
-                currentPrice: 2.99,
-                newPrice: 109.99
-            ),
-        ])
+        PriceChangeTable(
+            items: [
+                .init(
+                    country: "United States",
+                    currency: "USD",
+                    currentPrice: 1.99,
+                    newPrice: 99.99
+                ),
+                .init(
+                    country: "Canada",
+                    currency: "CAD",
+                    currentPrice: 2.99,
+                    newPrice: 109.99
+                ),
+            ],
+            type: .constant(.diff)
+        )
     }
 }

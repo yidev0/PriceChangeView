@@ -14,12 +14,14 @@ public struct PriceChangeView: View {
     @State var items: [PriceChangeItem]
     @State var allItems: [PriceChangeItem]
     @State var search: String
+    @State var type: PriceChangeType
     
-    public init(fileName: String) {
+    public init(fileName: String, type: PriceChangeType = .diff) {
         self.fileName = fileName
         self._items = .init(initialValue: [])
         self._allItems = .init(initialValue: [])
         self._search = .init(initialValue: "")
+        self._type = .init(initialValue: type)
     }
     
     public var body: some View {
@@ -57,12 +59,12 @@ public struct PriceChangeView: View {
     
     var list: some View {
         #if os(macOS)
-        PriceChangeTable(items: items)
+        PriceChangeTable(items: items, type: $type)
         #else
         if #available(iOS 16.0, *) {
-            return PriceChangeTable(items: items)
+            return PriceChangeTable(items: items, type: $type)
         } else {
-            return PriceChangeList(items: items)
+            return PriceChangeList(items: items, type: $type)
         }
         #endif
     }

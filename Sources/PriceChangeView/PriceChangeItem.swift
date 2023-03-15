@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum PriceChangeType: Int {
+public enum PriceChangeType: Int {
     case diff = 0, newPrice, currentPrice
 }
 
