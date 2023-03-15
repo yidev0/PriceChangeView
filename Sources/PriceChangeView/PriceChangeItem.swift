@@ -42,6 +42,8 @@ struct PriceChangeItem: Identifiable {
         var returnValue = locale.displayName(forKey: .currencySymbol, value: currency) ?? ""
         if returnValue.contains("$") && returnValue.count > 1 {
             returnValue = "$"
+        } else if returnValue.contains("¥") && returnValue.count > 1 {
+            returnValue = "¥"
         }
         return returnValue
     }

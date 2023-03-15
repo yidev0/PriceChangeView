@@ -9,7 +9,11 @@ import SwiftUI
 
 @available(iOS 15.0, macOS 12.0, *)
 struct PriceChangeList: View {
-    
+
+    #if !os(macOS)
+    @Environment(\.horizontalSizeClass) var sizeClass
+    #endif
+
     @Binding var type: PriceChangeType
     var items: [PriceChangeItem]
     
@@ -26,7 +30,11 @@ struct PriceChangeList: View {
         }
         .toolbar {
             ToolbarItem {
-                PriceChangePicker(type: $type)
+                #if !os(macOS)
+                if sizeClass == .compact {
+                    PriceChangePicker(type: $type)
+                }
+                #endif
             }
         }
     }

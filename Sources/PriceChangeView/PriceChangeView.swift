@@ -10,6 +10,8 @@ import SwiftUI
 @available(iOS 15.0, macOS 12.0, *)
 public struct PriceChangeView: View {
     
+    @Environment(\.dismiss) var dismiss
+    
     private var fileName: String
     @State var items: [PriceChangeItem]
     @State var allItems: [PriceChangeItem]
@@ -35,6 +37,15 @@ public struct PriceChangeView: View {
                 } else {
                     items = allItems.filter { item in
                         item.country.contains(newValue.capitalized)
+                    }
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button {
+                        dismiss.callAsFunction()
+                    } label: {
+                        Text("Done")
                     }
                 }
             }
